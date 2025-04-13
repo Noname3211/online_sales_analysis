@@ -1,5 +1,7 @@
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
+import random
 
 manager=ProductManager()
 
@@ -25,3 +27,11 @@ print("Products in store:")
 manager.display_products()
 
 print(f"Total inventory value is:{manager.sum_value()}")
+
+cart=Cart()
+all_products=manager.products
+random_products=random.sample(all_products,3)
+for product in random_products:
+    cart.add_item(product)
+
+cart.print()
