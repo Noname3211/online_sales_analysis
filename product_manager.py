@@ -10,3 +10,11 @@ class ProductManager:
             product.display()
     def sum_value(self):
         return sum(product.quantity * product.price for product in self.products)
+    def remove_product_by_name(self, name):
+        original_len = len(self.products)
+        self.products = [product for product in self.products if product.name != name]
+        if len(self.products) < original_len:
+            return original_len-len(self.products)
+        else:
+            return 0
+    
